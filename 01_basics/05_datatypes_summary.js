@@ -27,3 +27,24 @@ const myFunction = function () {
     console.log("hello World ")
 }
 console.log(typeof myFunction)
+
+
+// MEMORIES  (Video 10)
+// Stack(Primitve), Heap(Non-Primitive)
+let myYoutubeName = "Gaming channel"
+let anothername = myYoutubeName
+anothername = "technical guruji"
+console.log(myYoutubeName)
+console.log(anothername);
+
+
+let user1 =
+{
+    email: "abc@gmail.com",
+    upi: "user@ypl"
+}
+let user2 = user1
+user2.email = "harish@gamil.com"
+console.log(user1.email);
+console.log(user2.email);
+ 
