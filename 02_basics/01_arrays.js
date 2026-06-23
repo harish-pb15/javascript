@@ -50,4 +50,5 @@ console.log("B", myArr2)
 const mynewArr2 = myArr2.splice(1, 3)
 console.log("C",myArr2)
 console.log(mynewArr2)
-// slice simply portion ki copy nikalta hai but splice uss portion ko remove kr deta hai and original array ko bhi change kr deta hai
+// slice simply portion ki copy nikalta hai but splice uss portion ko remove kr deta hai 
+// and original array ko bhi change kr deta hai, also splice me dono limits include hoti hai
