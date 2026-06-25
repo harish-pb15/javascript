@@ -36,7 +36,7 @@ user.greeting = function()
 }
 user.greetingTwo = function()
 {
-    console.log(`hello user,${this["full name"]}`)
+    console.log(`hello user,${this["full name"]}`) //same object ko reference krna ho to this likhte hai 
 }
 
 console.log(user.greeting());
