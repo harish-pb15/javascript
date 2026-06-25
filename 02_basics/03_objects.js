@@ -4,15 +4,15 @@
 //object literals
 
 const mySym = Symbol("key1")
-const user ={
-    name : "Harish",
-    "full name" : "Harish Pareek",
-    [mySym]:"mykey1",  // syntax to use symbol in object
+const user = {
+    name: "Harish",
+    "full name": "Harish Pareek",
+    [mySym]: "mykey1",  // syntax to use symbol in object
     age: 20,
-    location:"Abohar",
-    email : "abc@gmail.com",
-    isLoggedin : false ,
-    lastLoginDays : ["Monday","Saturday"]
+    location: "Abohar",
+    email: "abc@gmail.com",
+    isLoggedin: false,
+    lastLoginDays: ["Monday", "Saturday"]
 }
 
 console.log(user.email)
@@ -30,13 +30,13 @@ user.email = "harish@gmail.com"
 user.email = "harish123@gmail.com" // object freeze k baad me change kiya hai to change apply nhi hoga 
 console.log(user)
 
-user.greeting = function()
-{
+user.greeting = function () {
     console.log("hello user")
 }
-user.greetingTwo = function()
-{
+user.greetingTwo = function () {
     console.log(`hello user,${this["full name"]}`) //same object ko reference krna ho to this likhte hai 
+    console.log(`Hello user,${this.name}`);
+
 }
 
 console.log(user.greeting());
