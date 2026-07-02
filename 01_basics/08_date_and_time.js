@@ -17,7 +17,7 @@ let anotherdate = new Date("2023-01-14")//string format of date YYYY/MM/DD
 let date1 = new Date("01-14-2023") // MM/DD/YYYY
 console.log(date1.toLocaleString())
 
-let myTimeStamp = Date.now();
+let myTimeStamp = Date.now(); //Date.now() is a static method that returns the current timestamp in milliseconds since 1 January 1970, 00:00:00 UTC (Unix Epoch).
 console.log(myTimeStamp)
 
 console.log(date1.getTime())  // getTime() kisi Date object ka timestamp return karta hai, yani 1 January 1970 00:00:00 UTC se lekar ab tak kitne milliseconds hue hain.
@@ -29,6 +29,6 @@ console.log(newDate1);
 console.log(newDate1.getMonth());
 console.log(newDate1.getDay()); // return day of week
 
-newDate1.toLocaleString('default', { weekday: "long" })
+newDate2 =newDate1.toLocaleString('default', { weekday: "long" })
 
-console.log(newDate1) 
+console.log(newDate2) 
