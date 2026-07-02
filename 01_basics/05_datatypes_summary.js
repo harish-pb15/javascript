@@ -13,6 +13,7 @@ const id = Symbol('123')
 const anotherid = Symbol('123')
 console.log(id === anotherid) // false aayega as Each call to Symbol() creates a new unique symbol,
 const bigNumber = 3964519245763020424n
+
 // # Reference/Non-Primitive datatype
 // Array, Objects , Functions
 
@@ -43,7 +44,8 @@ let user1 =
     email: "abc@gmail.com",
     upi: "user@ypl"
 }
-let user2 = user1
+let user2 = user1       // Objects are non-primitive (reference) data types; assigning one object to another (user2 = user1) copies the reference (address), so both variables point to the same object and changes made through one are reflected in the other.
+
 user2.email = "harish@gamil.com"
 console.log(user1.email);
 console.log(user2.email);
