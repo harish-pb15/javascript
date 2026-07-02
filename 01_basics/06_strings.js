@@ -17,12 +17,12 @@ console.log(gameName.indexOf('e'))
 const newString = gameName.substring(0, 4) // 0 index is included but 4 index is not included 
 console.log(newString);
 
-const anotherString = gameName.slice(-8, 4)
+const anotherString = gameName.slice(-8, 4) // -8 is included and 4 is excluded
 console.log(anotherString);
 // c r i c k e t - 2 5 
 // 0 1 2 3 4 5 6 7 8 9   --> simple indexing
 //-10 -9 ......    -2 -1  --> negative indexing jo ki last se shuru hoti hai 
-// -8 =i and 4 =c issi liye ic print hoga 
+// -8 =i and 3=c issi liye ic print hoga 
 
 //    TRIM
 const newStringOne = "      harish      "
