@@ -9,10 +9,10 @@ const user =
 }
 
 user.welcomeMessage()   // this = user 
-user.username = "abcd"
+user.username = "abcd" 
 user.welcomeMessage() // this = user 
 
-console.log(this) // this = global scope
+console.log(this) // this = global scope, now current context is abcd
 
 
 // function chai()
