@@ -34,5 +34,5 @@ const myObject =
 
 // for (const [key,value] of myObject) {
 //     console.log(key,value);
-    
 // }
+// this is not applicable on object as object is not iterable by this method
