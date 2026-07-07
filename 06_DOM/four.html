@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DOM</title>
+</head>
+
+<body style="background-color: #212121;color: aquamarine;">
+    <ul class="language">
+        <li>JavaScript</li>
+
+    </ul>
+</body>
+<script>
+    function addLanguage(LangName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${LangName}`
+        document.querySelector('.language').
+            appendChild(li)
+    }
+    addLanguage("Python")
+
+    //OPTIMISED METHOD
+    function addOptiLanguage(LangName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(LangName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('C++')
+
+    //Edit
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement('li')
+    newLi.textContent = "Mojo"
+    secondLang.replaceWith(newLi)
+    //poora ek li replace hua hai therefore pehle li create kiya humne then usko replace kiya hai 
+
+    //edit example 2
+    const firstLang = document.querySelector("li:first-child")
+    const replaceLi = document.createElement('li')
+    replaceLi.textContent = "JAVA"
+    firstLang.replaceWith(replaceLi)
+
+    //edit example 3
+    const thirdLang = document.querySelector("li:nth-child(3)")
+    thirdLang.outerHTML = '<li>Typescript</li>'
+
+
+    // remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+
+</html>
