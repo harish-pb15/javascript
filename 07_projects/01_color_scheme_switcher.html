@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Scheme Switcher</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boxes {
+            border: 2px solid black;
+            margin: 5px;
+            height: 50px;
+            width: 50px;
+            display: flex;
+
+        }
+
+        .grey {
+            background-color: grey;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        h1 {
+            margin: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Color Scheme Switcher</h1>
+    <div class="container">
+        <div class="boxes grey"></div>
+        <div class="boxes green"></div>
+        <div class="boxes blue"></div>
+        <div class="boxes yellow"></div>
+
+    </div>
+    <h2 style="text-align: center;width: 75vw;margin-left: 66px;">
+        Try clicking on one of the colors above to change the background color of this page
+    </h2>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.boxes')
+    const body = document.querySelector('body')
+    buttons.forEach((button) => {
+        button.addEventListener('click', function (e) {
+            console.log(e)
+            console.log(e.target);
+            if (e.target.className === 'boxes grey') {
+                body.style.backgroundColor = 'grey'
+            }
+            if (e.target.className === 'boxes green') {
+                body.style.backgroundColor = 'green'
+            }
+            if (e.target.className === 'boxes blue') {
+                body.style.backgroundColor = 'blue'
+            }
+            if (e.target.className === 'boxes yellow') {
+                body.style.backgroundColor = 'yellow'
+            }
+        })
+    })
+</script>
+
+</html>
