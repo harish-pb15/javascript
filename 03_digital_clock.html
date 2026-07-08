@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    overflow: hidden;
+}
+
+.center {
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+#banner {
+    color: white;
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+#clock {
+    position: relative;
+    overflow: hidden;
+    min-width: 320px;
+    padding: 25px 45px;
+    font-size: 52px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    box-shadow:
+        0 0 20px rgba(255, 81, 47, 0.7),
+        0 0 40px rgba(221, 36, 118, 0.6),
+        0 0 80px rgba(221, 36, 118, 0.4);
+    animation: pulse 2s infinite ease-in-out;
+    transition: transform 0.3s;
+}
+
+#clock:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+#clock::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 60%;
+    height: 200%;
+    background: rgba(255,255,255,0.3);
+    transform: rotate(25deg);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow:
+            0 0 20px rgba(255,81,47,.7),
+            0 0 40px rgba(221,36,118,.6);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow:
+            0 0 40px rgba(255,81,47,1),
+            0 0 80px rgba(221,36,118,.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 5px white;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #00e5ff,
+            0 0 20px #00e5ff,
+            0 0 40px #00e5ff;
+    }
+}
+
+@keyframes shine {
+    from {
+        left: -150%;
+    }
+
+    to {
+        left: 200%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div id="banner"><span>Your Local time</span></div>
+        <div id="clock"></div>
+    </div>
+</body>
+<script>
+    const clock = document.getElementById('clock')
+    //setInterval() JavaScript ka built-in function hai jo kisi function ko ek fixed time interval ke baad baar-baar chalata hai.
+    //SYNTAX :- setInterval(function, timeInMilliseconds);
+    setInterval(function () {
+        let date = new Date();
+        clock.innerHTML = date.toLocaleTimeString();
+    }, 1000)
+
+</script>
+
+</html>
