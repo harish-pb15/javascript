@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        form p {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+
+        .weight-guide {
+            margin-top: 25px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .weight-guide h3 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .weight-guide p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>BMI calculator</h1>
+        <form>
+            <p><label for="height">Height in CM: </label>
+                <input type="text" id="height" placeholder="Enter Height in cm">
+            </p>
+            <p><label for="weight">Weight in Kg: </label>
+                <input type="text" id="weight" placeholder="Enter Weight in Kgs">
+            </p>
+            <button>calculate</button>
+            <div class="results"></div>
+            <div class="weight-guide">
+                <h3>BMI Weight Guide</h3>
+                <p>Under weight = Less than 18.6</p>
+                <p>Normal Range =18.6 and 24.9</p>
+                <p>Overweight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.querySelector('form')
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        const height = parseInt(document.querySelector('#height').value) //parseInt is a JS function used to convert string to number 
+        const weight = parseInt(document.querySelector('#weight').value) // .value is a DOM property used to get or set the current value of form elements like <input>, <textarea>, and <select>.
+        const results = document.querySelector('.results')
+        if (height === '' || height < 0 || isNaN(height)) {
+            results.innerHTML = "Please give a valid height";
+        }
+        else if (weight === '' || weight < 0 || isNaN(weight)) {
+            results.innerHTML = "Please give a valid weight";
+        }
+        else {
+            results.textContent = (weight / ((height * height) / 10000)).toFixed(2)
+        }
+
+    })
+</script>
+
+</html>
