@@ -34,7 +34,7 @@
     const startOver = document.querySelector('.resultParas')
     const p = document.createElement('p')
 
-    let prevGuess = []
+    let prevGuess = [] // this is not used in this code
     let numGuess = 1
 
     let playGame = true
@@ -81,8 +81,8 @@
     }
 
     function displayGuess(guess) {
-        userInput.value = ''
-        guessSlot.innerHTML += `${guess}  `
+        userInput.value = '' // clears input box
+        guessSlot.innerHTML += `${guess}  ` // previous guesses  add on to the string
         numGuess++;
         remaining.innerHTML = `${11 - numGuess}`
     }
@@ -92,7 +92,7 @@
 
     function endGame() {
         userInput.value = ''
-        userInput.setAttribute('disabled', '')
+        userInput.setAttribute('disabled', '') // key pair value me dena hota hai isme 
         p.classList.add('button')
         p.innerHTML = `<h2 id ="newGame"> Start new Game</h2>`
         startOver.appendChild(p)
