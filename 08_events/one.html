@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color: #212121;">
+    <h2>Images</h2>
+    <ul id="Images">
+        <li><img src="https://cdn.britannica.com/48/252748-050-C514EFDB/Virat-Kohli-India-celebrates-50th-century-Cricket-November-15-2023.jpg"
+                alt="Loading..." height="300px" width="300px" id="Virat"></li>
+        <li><img src="https://thf.bing.com/th/id/OIP.3qzhpXqJcvp3ScKRDkG8cwHaL9?w=118&h=150&c=6&r=0&o=7&cb=thfc1falcon4&dpr=1.3&pid=1.7&rm=3"
+                alt="Loading..." id="Dhoni"></li>
+        <li><img src="https://thf.bing.com/th/id/OIP.Ipq9m-7T4rk6FqgKhwX8KQHaEK?w=191&h=150&c=6&r=0&o=7&cb=thfc1falcon4&dpr=1.3&pid=1.7&rm=3"
+                alt="Loading..." id="Kohli"> </li>
+        <li><img src="
+                https://thf.bing.com/th/id/OIP.ffhfHflsagDjGeGmAbrKvAHaEK?w=217&h=180&c=7&r=0&o=7&cb=thfc1falcon4&dpr=1.3&pid=1.7&rm=3"
+                alt="Loading..." id="Rohit"></li>
+        <li><a href="https://www.google.com" target="_blank" style="color: azure;" id="google">google</a></li>
+    </ul>
+</body>
+<script>
+    // document.getElementById('Virat').onclick = function () {
+    //     alert("Virat Kohli")
+    // }
+
+    //attachEvent()
+    //jQuery - on
+
+    // Best approach : eventlistener
+    //addEventListener() is used to listen for an event (like a click, key press, mouse movement, etc.) and run a function when that event happens.
+    //SYNTAX :- element.addEventListener("event", function () {
+    // Code to execute })
+
+    document.getElementById('Virat').addEventListener('click', function (e) {  //e is the event object :- Jab bhi koi event hota hai (click, key press, mouse move, submit, etc.), browser automatically ek object banata hai jisme us event ki saari information hoti hai.Ye object callback function ko argument ke roop me milta hai
+        alert("Virat Kohli clicked")
+        console.log("Virat kohli clicked ");
+
+    }, false) //by default  false and need not to write it
+
+    document.getElementById('Images').addEventListener('click', function (e) {
+        console.log("Images clicked");
+        e.stopPropagation() //stopPropagation() is used to stop an event from traveling further in the DOM
+    }, false)
+    //EVENT BUBBLING PROPAGATION
+    // humne upar do event liye hai ek to images pe click and ek virat pe click lekin what if jab hum virat pe click krege
+    // to jab hum virat pe click krege to pehle andar wala means virat chalega and then baahar waala means images chalega , therefore bubble propagation andar se baahar hota hai
+    // CAPTURING me bubbling ka ulta hota hai
+    //false:- bubbling phase  and  True:- Capturing phase
+
+    //MUST READ THIS PDF
+    //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY, altkey, ctrlkey, shiftkey, keycode
+
+
+    //preventdefault : It stops the browser's default behavior for an event.
+
+    document.getElementById('google').addEventListener('click', function (e) {
+        e.preventDefault()
+    }, false)
+
+
+    document.querySelector('#Images').addEventListener('click', function (e) {
+        console.log(e.target.tagName); //tagName generally refers to the name of an HTML tag or element.
+        if (e.target.tagName === 'IMG') {  // ye iss liye use kiya kyuki hum chahte hai sirf img pe click krne se vo ek img remove ho jaaye but pehle li pe click krne se sare img delete ho rhe the because li ka parent node ul hai and humne parentNode ko remove krne ka code likha hai
+            console.log(e.target); //e.target returns the actual HTML element on which the event occurred.
+            console.log(e.target.parentNode);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+            // removeIt.parentNode.removeChild(removeIt)
+        }
+
+    })
+
+</script>
+
+</html>
