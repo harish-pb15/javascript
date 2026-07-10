@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Start should change the Background color every second</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+</body>
+<script>
+    // generate a random color using HEX values which are from 0 to 9 then A to F i.e :- 01234...9ABC..F
+    const randomColor = function () {
+        const hex = "0123456789ABCDEF" // hex is a string , therefore hex[0] is 0 and all other elements can  be accessed like this
+        let color = "#"
+        for (let i = 0; i < 6; i++) {  //loop six times  as color have value like #123456 
+            color += hex[Math.floor(Math.random() * 16)] // [] ke andar wala random number generate krega 0 to 16 k beech and then we are using hex[] means random koi bhi element select ho hex se and then humne isko color me += kr dia string me 
+        }
+        return color
+    };
+    // console.log(randomColor);
+
+    let intervalId
+    const startChangingColor = function () {
+        if (!intervalId) // means if intervalId is null ,jo hum stop ke baad krege 
+        {
+            intervalId = setInterval(changeBgColor, 1000)
+        }
+
+        function changeBgColor() {
+            document.body.style.backgroundColor = randomColor();
+        }
+    }
+    const stopChangingColor = function () {
+        clearInterval(intervalId);
+        intervalId = null; // intervalId ko null kiya hai taaki stop krne k baad values clear ho jaaye uss variable me and overwrite naa ho, vaise agar ye nhi krte to bhi code chalta 
+    }
+
+    document.querySelector('#Start').addEventListener
+        ('click', startChangingColor)
+
+    document.querySelector('#Stop').addEventListener
+        ('click', stopChangingColor)
+
+</script>
+
+</html>
