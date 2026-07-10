@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chai or code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //setTimeout() is a JavaScript function that executes a callback once after a specified delay.
+    //It is asynchronous; it doesnot block the rest of the code
+    //SYNTAX :- setTimeout(function, delay in milliseconds, ...args);
+    // setTimeout(function () {
+    //     console.log("Harish");
+
+    // }, 2000)
+    const sayHarish = function () {
+        console.log("Harish")
+    }
+    setTimeout(sayHarish, 2000)
+
+    const changeText = function () {
+        document.querySelector('h1').innerHTML = "best JS Series"
+    }
+    const changeMe = setTimeout(changeText, 5000)
+    //  clearTimeout()// clearTimeout is used to stop the setTimeout 
+    document.querySelector("#stop").addEventListener('click', function (e) {
+        clearTimeout(changeMe) //clearTimeout needs reference of the setTimeout which has to be removed
+        console.log("Stopped");
+
+    })
+
+
+</script>
+
+</html>
