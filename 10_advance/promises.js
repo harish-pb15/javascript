@@ -94,7 +94,7 @@ const promiseFive = new Promise(function (resolve, reject) {
 
 async function consumePromiseFive() {
     try {
-        const response = await promiseFive
+        const response = await promiseFive //await Promise ke complete (resolve ya reject) hone tak wait karta hai. Agar Promise resolve ho jaye to execution try block ki next line se continue hota hai. Agar Promise reject ho jaye to execution seedha catch block me chala jata hai.
         console.log(response);
     }
     catch (error) {
@@ -104,7 +104,43 @@ async function consumePromiseFive() {
 }
 consumePromiseFive()
 
+// ### Async / Await (Quick Notes)
 
+// * **`async`** keyword kisi function ke aage lagaya jata hai taaki uske andar **`await`** use kiya ja sake.
+// * **`await`** sirf **Promise** ke saath aur **`async` function** ke andar hi use hota hai.
+// * `await` Promise ko execute nahi karta. Promise pehle hi start ho chuka hota hai. `await` sirf Promise ke complete (resolve/reject) hone ka wait karta hai.
+// * Agar Promise **resolve** ho jaye, to `await` ko `resolve()` me di hui value mil jati hai.
+
+// ```javascript
+// const response = await promiseFive;
+// ```
+
+// * Upar wali line ka matlab:
+
+//   * Promise complete hone tak wait karo.
+//   * `resolve()` ki value ko `response` me store kar do.
+
+// * Agar Promise **reject** ho jaye, to control **`catch`** block me chala jata hai.
+
+// ```javascript
+// try {
+//     const response = await promiseFive;
+//     console.log(response);
+// }
+// catch (error) {
+//     console.log(error);
+// }
+// ```
+
+// * **`try`** → Aisa code likhte hain jahan error aane ki possibility ho.
+// * **`catch`** → Agar Promise reject ho ya error aaye, to usse handle karta hai.
+
+// ### Promise vs Async/Await
+
+// * `.then()`  → `await`
+// * `.catch()` → `try...catch`
+
+// **Remember:** `await` Promise ka **final result** (resolved value) deta hai, `Promise {<pending>}` nahi.
 
 
 
@@ -138,3 +174,11 @@ consumePromiseFive()
 // * `resolve()` aur `reject()` me **koi bhi value** pass kar sakte hain—String, Number, Object, Array, etc. Wahi value `.then()` ya `.catch()` me receive hoti hai.
 
 // * **Promise Chaining:** Agar ek `.then()` se koi value `return` ki jati hai, to woh value automatically next `.then()` ke parameter me aa jati hai.
+
+
+
+
+
+
+
+
