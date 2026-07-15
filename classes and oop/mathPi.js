@@ -5,6 +5,7 @@ console.log(Math.PI);
 
 Math.PI = 5
 console.log(Math.PI);
+// Hum Math.PI ko overwrite nahi kar sakte kyunki uski property descriptor me writable: false hota hai. Isliye uski value read-only hoti hai. Aur configurable: false hone ki wajah se us property ko delete ya reconfigure bhi nahi kar sakte.
 
 const chai = {
     name: 'ginger chai',
