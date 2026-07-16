@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+
+<body style="background-color: #212121; color : azure">
+    <button id="Orange">Orange </button>
+    <button id="Green">Green</button>
+</body>
+<script>
+    //Lexical Scoping : Ek function apne parent (outer) scope ke variables ko access kar sakta hai.
+    function init() {
+        let name = "Mozilla"
+        function displayName() {
+            console.log(name);
+        }
+        displayName();
+    }
+    init();
+    //doubt :- Mozilla sirf ek baar hi print hoga as init() ko ek baar call kiya to uske andar ke saare cheeze ek baar chalegi and jab tak init call nhi hoga uske andar ka kuchh bhi nhi chalega 
+
+
+    // CLOSURE :-A closure is a function that remembers the variables from its lexical (outer) scope even after the outer function has finished executing.
+    function makeFunc() {
+        const name = "Mozilla closure";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName; // ye displayName return krne se baahar wala function scope bhi lexical scoping se return ho rha hai
+    }
+    const myFunc = makeFunc();
+    myFunc();
+</script>
+<script>
+    // Practical on Lexical Scope and Closure
+
+
+    // document.getElementById('Orange').onclick = function () {
+    //     document.body.style.backgroundColor = "orange"
+    // }
+    // document.getElementById("Green").onclick = function () {
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+
+    function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`  // this will not work as bina button pe click kiye hi apne aap execute ho jaa rha hai on- click 
+        // kyuki on-click demands function jo click krne pe execute hoga but aisa krne se sidha execution hi de rhe hai hum function ka 
+
+        return function abc() { // Closure works here as abc return krne se iska lexical scope bhi return ho rha hai
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('Orange').onclick = clickHandler('orange')
+    document.getElementById('Green').onclick = clickHandler('green')
+
+</script>
+
+</html>
