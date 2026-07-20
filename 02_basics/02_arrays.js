@@ -29,7 +29,7 @@ console.log(Array.isArray("Hitesh")) // Array.isArray() check karta hai ki jo va
 console.log(Array.from("Hitesh"))
 
 //Important
-console.log(Array.from({ name: "harish" })) // by default it will give an empty array 
+console.log(Array.from({ name: "harish" })) // by default it will give an empty array because object is non iterable and also it does not have array like properties 
 
 
 let score1 = 100
