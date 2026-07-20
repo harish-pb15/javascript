@@ -15,7 +15,7 @@ console.log(platform);
 
 {
     "name" : "Harish",
-    "coursename" ;" Js in hindi",
+    "coursename" :" Js in hindi",
     "price" : "free"
 }
 
