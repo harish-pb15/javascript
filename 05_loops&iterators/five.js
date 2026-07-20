@@ -1,7 +1,7 @@
 const coding = ["js", "ruby", "cpp", "python", "java"]
 //forEach() is an array method used to execute a function once for every element of an array.
 
-coding.forEach(function (item) {  // ye call back function hai to iska name nhi hota
+coding.forEach(function (item) {  // ye call back function hai : Callback function wo function hota hai jo kisi doosre function ko argument ke roop me pass kiya jata hai, aur baad me call hota hai.
     console.log(item)
 })
 
