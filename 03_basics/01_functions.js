@@ -28,7 +28,7 @@ console.log("Result :", result)
 
 function loginUserMessage(username) {
     if (username === undefined)
-    // if(!username){}
+    // if(!username){} // agar username falsy hai to condtion true ho jaayegi ye 
     {
         console.log("Please,Enter a username")
         return
