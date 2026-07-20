@@ -39,5 +39,5 @@ user.greetingTwo = function () {
 
 }
 
-console.log(user.greeting());
-console.log(user.greetingTwo())
+user.greeting();
+user.greetingTwo();
