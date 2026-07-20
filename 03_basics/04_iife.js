@@ -5,7 +5,7 @@
 (function chai() {  // named IIFE as function ka name likh dia 
     console.log(`DB CONNECTED`);
 })(); // semi colon is must to terminate iife 
-//poore function ko parenthesis me rakhne se ye chal jaayega 
+
 
 
 // Arrow function IIFE
