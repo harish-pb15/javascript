@@ -25,14 +25,14 @@
     </div>
 </body>
 <script>
-    let randomNumber = parseInt(Math.random() * 100 + 1)
-    const submit = document.querySelector('#subt')
-    const userInput = document.querySelector('#guessField')
-    const guessSlot = document.querySelector('.guesses')
-    const remaining = document.querySelector('.lastResult')
-    const lowOrHi = document.querySelector('.lowOrHi')
-    const startOver = document.querySelector('.resultParas')
-    const p = document.createElement('p')
+    let randomNumber = parseInt(Math.random() * 100 + 1) // to generate a random number between 0 to 100
+    const submit = document.querySelector('#subt')   // for submit button
+    const userInput = document.querySelector('#guessField') // for user input means user jo number enter krega vo
+    const guessSlot = document.querySelector('.guesses') // to maintain the record for the previous guesses
+    const remaining = document.querySelector('.lastResult') // to show the number of guesses remaining 
+    const lowOrHi = document.querySelector('.lowOrHi') // to tell the user to guess low or high
+    const startOver = document.querySelector('.resultParas') // class which contains the results and isme hum p ko as a child append krege for starting the new game
+    const p = document.createElement('p') // new paragraph create for creating a button for starting of new Game
 
     let prevGuess = [] // this is not used in this code
     let numGuess = 1
@@ -80,7 +80,7 @@
         }
     }
 
-    function displayGuess(guess) {
+    function displayGuess(guess) {  // function to clear the input box and show the number guessed in the previous guesses
         userInput.value = '' // clears input box
         guessSlot.innerHTML += `${guess}  ` // previous guesses  add on to the string
         numGuess++;
